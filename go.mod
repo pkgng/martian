@@ -1,4 +1,4 @@
-module github.com/google/martian/v3
+module github.com/pkgng/martian/v3
 
 go 1.11
 
