@@ -15,7 +15,6 @@
 package header
 
 import (
-	"net"
 	"net/http"
 
 	"github.com/google/martian/v3"
@@ -43,16 +42,16 @@ func NewForwardedModifier() martian.RequestModifier {
 				req.Header.Set("X-Forwarded-Url", req.URL.String())
 			}
 
-			xff, _, err := net.SplitHostPort(req.RemoteAddr)
-			if err != nil {
-				xff = req.RemoteAddr
-			}
+			// xff, _, err := net.SplitHostPort(req.RemoteAddr)
+			// if err != nil {
+			// 	xff = req.RemoteAddr
+			// }
 
-			if v := req.Header.Get("X-Forwarded-For"); v != "" {
-				xff = v + ", " + xff
-			}
+			// if v := req.Header.Get("X-Forwarded-For"); v != "" {
+			// 	xff = v + ", " + xff
+			// }
 
-			req.Header.Set("X-Forwarded-For", xff)
+			// req.Header.Set("X-Forwarded-For", xff)
 
 			return nil
 		})
